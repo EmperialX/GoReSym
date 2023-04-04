@@ -94,7 +94,7 @@ Much of the source code from GoReSym is copied from the upstream Go compiler sou
 
 Due to the way Go packages work, we needed to remove the `/internal` path from the source file tree. This resulted in a lot of copying of internal Go files, where the directory tree is mostly intact but with small changes to many files' imports: references to `/internal` paths were replaced with `github.com/mandiant/GoReSym/`. 
 
-We also modified many internal structures to export fields and methods. These are not exported by Go upstream because users should not rely upon them. However, the purpose of this tool is to extract internal information, so we're taking on the task of maintaining these structures. It's not a great situation, but it's not easily avoidable. If you update this repository, you must take care to keep these modifications intact. I'ts probably better to manually merge in commits from upstream rather than copying upstream files wholesale.
+We also modified many internal structures to export fields and methods. These are not exported by Go upstream because users should not rely upon them. However, the purpose of this tool is to extract internal information, so we're taking on the task of maintaining these structures. It's not a great situation, but it's not easily avoidable. If you update this repository, you must take care to keep these modifications intact. It's probably better to manually merge in commits from upstream rather than copying upstream files wholesale.
 
 I am open to suggestions on how to better structure this project to avoid these issues while still compiling with the typical `go build`. There is a previous discussion involving Go maintainers [here](https://github.com/golang/go/issues/46792).
 
